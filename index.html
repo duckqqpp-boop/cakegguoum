@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍓 내 꿈은 파티시엘 | 디저트 도감</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="custom-cursor">🍓</div>
+  <div id="particle-container"></div>
+  
+  <div class="floating-bg-elements"></div>
+
+  <div id="intro-screen" class="screen active">
+    <div class="intro-glass-card">
+      <div class="intro-lace"></div>
+      <h1 class="intro-title">🍓 내 꿈은 파티시엘</h1>
+      <p class="intro-desc">
+        꿈빛 파티시엘 속<br>
+        달콤한 디저트들의 세계<br>
+        <span>나만의 디저트 도감을 완성해보세요</span>
+      </p>
+      <button id="start-btn" class="sweet-btn">
+        <span>🍓 스위트 왕자님들과<br>그랑프리로 떠나기 🍰</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="main-screen" class="screen">
+    
+    <header class="main-header">
+      <div class="logo">🍓 파티시엘 도감</div>
+      <nav class="nav-menu">
+        <button class="nav-item active" data-target="home-section">🏠 홈</button>
+        <button class="nav-item" data-target="encyclopedia-section">🍰 디저트 도감</button>
+        <button class="nav-item" data-target="my-book-section">📚 나의 도감</button>
+        <button class="nav-item" data-target="api-section">📖 API 문서</button>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="디저트 검색...">
+      </div>
+    </header>
+
+    <div class="main-container">
+      
+      <aside class="sidebar">
+        <div class="glass-panel progress-panel">
+          <h3>🏆 나의 도감 완성도</h3>
+          <div class="progress-info">
+            <span id="progress-count">0 / 20</span>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar-outer">
+            <div id="progress-bar-inner"></div>
+          </div>
+        </div>
+
+        <div class="glass-panel recommend-panel" id="recommend-card">
+          <h3>⭐ 오늘의 추천</h3>
+          <div class="recommend-content">
+            <img src="" alt="추천 디저트" id="rec-img">
+            <h4 id="rec-name">딸기 쇼트케이크</h4>
+          </div>
+        </div>
+
+        <div class="glass-panel top5-panel">
+          <h3>💖 인기 디저트 TOP 5</h3>
+          <ul id="top5-list">
+            </ul>
+        </div>
+      </aside>
+
+      <main class="content-area">
+        
+        <section id="encyclopedia-section" class="tab-content active">
+          <div class="category-bar">
+            <button class="cat-btn active" data-cat="all">전체</button>
+            <button class="cat-btn" data-cat="케이크">케이크</button>
+            <button class="cat-btn" data-cat="타르트">타르트</button>
+            <button class="cat-btn" data-cat="마카롱">마카롱</button>
+            <button class="cat-btn" data-cat="초콜릿">초콜릿</button>
+            <button class="cat-btn" data-cat="쿠키">쿠키</button>
+            <button class="cat-btn" data-cat="기타">기타</button>
+          </div>
+
+          <div class="slider-display">
+            <button id="prev-btn" class="nav-arrow">⬅</button>
+            
+            <div class="main-dessert-card glass-panel" id="main-card">
+              <div class="card-image-wrapper">
+                <img src="" alt="디저트 이미지" id="main-dessert-img">
+                <div class="category-badge" id="main-dessert-cat">케이크</div>
+              </div>
+              <div class="card-info-wrapper">
+                <h2 id="main-dessert-name">딸기 쇼트케이크</h2>
+                <p id="main-dessert-desc">부드러운 시트와 달콤한 생크림, 상큼한 딸기가 어우러진 정석 케이크.</p>
+                <div class="info-grid">
+                  <div class="info-item"><span>🎬 등장 화수:</span> <span id="info-ep">1화</span></div>
+                  <div class="info-item"><span>🍓 주재료:</span> <span id="info-ing">딸기, 생크림</span></div>
+                  <div class="info-item"><span>⭐ 난이도:</span> <span id="info-diff">⭐⭐⭐</span></div>
+                  <div class="info-item"><span>🍯 달콤함:</span> <span id="info-sweet">⭐⭐⭐⭐</span></div>
+                  <div class="info-item"><span>✨ 화려함:</span> <span id="info-beauty">⭐⭐⭐⭐</span></div>
+                </div>
+              </div>
+            </div>
+
+            <button id="next-btn" class="nav-arrow">➡</button>
+          </div>
+
+          <div class="control-actions">
+            <button id="action-collect" class="action-btn collect">⭐ 도감에 추가</button>
+            <button id="action-slideshow" class="action-btn slideshow">🎞️ 자동 슬라이드 쇼 (OFF)</button>
+            <button id="action-download" class="action-btn download">📥 이미지 다운로드</button>
+          </div>
+
+          <div class="recent-view-container glass-panel">
+            <h3>⏰ 최근 본 디저트</h3>
+            <div id="recent-list" class="recent-list"></div>
+          </div>
+        </section>
+
+        <section id="my-book-section" class="tab-content">
+          <div class="section-title">🍓 내가 수집한 디저트 도감</div>
+          <div id="my-book-grid" class="grid-container">
+            </div>
+        </section>
+
+        <section id="api-section" class="tab-content">
+          <div class="section-title">📖 Sweet Patissiere Mock API</div>
+          <div class="api-container glass-panel">
+            <p class="api-intro">꿈빛 파티시엘 디저트 데이터를 연동할 수 있는 가상 API 가이드 문서입니다.</p>
+            
+            <div class="api-block">
+              <span class="method get">GET</span> <code class="endpoint">/api/desserts</code>
+              <p class="api-desc">전체 디저트 목록 및 상세 데이터를 반환합니다.</p>
+            </div>
+            <div class="api-block">
+              <span class="method get">GET</span> <code class="endpoint">/api/desserts/:id</code>
+              <p class="api-desc">특정 ID를 가진 디저트의 상세 정보를 조회합니다.</p>
+            </div>
+            <div class="api-block">
+              <span class="method get">GET</span> <code class="endpoint">/api/random</code>
+              <p class="api-desc">전체 데이터 중 랜덤으로 디저트 1개를 추천합니다.</p>
+            </div>
+            <div class="api-block">
+              <span class="method get">GET</span> <code class="endpoint">/api/search?q={query}</code>
+              <p class="api-desc">이름 또는 재료 키워드로 실시간 필터링 검색을 수행합니다.</p>
+            </div>
+            <div class="api-block">
+              <span class="method get">GET</span> <code class="endpoint">/api/categories</code>
+              <p class="api-desc">등록되어 있는 디저트 카테고리 목록을 불러옵니다.</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div id="new-dessert-modal" class="modal-overlay">
+    <div class="modal-content animate-pop">
+      <div class="sparkle-title">✨ NEW DESSERT ✨</div>
+      <div id="modal-dessert-img-wrap"></div>
+      <h2 id="modal-dessert-name">몽블랑 발견!</h2>
+      <p>달콤한 디저트가 도감에 성공적으로 등록되었습니다!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
